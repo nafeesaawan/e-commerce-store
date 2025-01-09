@@ -1,46 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ice Cream Shop</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scoop Haven Ice Cream</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fdf6e3;
+            color: #333;
+        }
+
+        header.hero {
+            text-align: center;
+            padding: 50px;
+            background: linear-gradient(to bottom, #ff9f80, #ff6b6b);
+            color: white;
+        }
+
+        header.hero h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        header.hero p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        header.hero .cta {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ff4757;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        header.hero .cta:hover {
+            background-color: #e84118;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section.flavors {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        section.flavors h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .flavor-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .flavor {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 200px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .flavor img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .flavor h3 {
+            margin-top: 10px;
+            font-size: 1.2em;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #ff6b6b;
+            color: white;
+            margin-top: 20px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Welcome to Sweet Scoops!</h1>
-  </header>
-  <main>
-    <section>
-      <h2>Our Flavors</h2>
-      <div class="flavors">
-        <div class="flavor">
-          <h3>Vanilla</h3>
-          <p>Price: $3.00</p>
-          <button onclick="orderFlavor('Vanilla')">Order</button>
-        </div>
-        <div class="flavor">
-          <h3>Chocolate</h3>
-          <p>Price: $3.50</p>
-          <button onclick="orderFlavor('Chocolate')">Order</button>
-        </div>
-        <div class="flavor">
-          <h3>Strawberry</h3>
-          <p>Price: $3.25</p>
-          <button onclick="orderFlavor('Strawberry')">Order</button>
-        </div>
-      </div>
-    </section>
-  </main>
-  <script>
-    function orderFlavor(flavor) {
-      fetch(`/order?flavor=${flavor}`, {
-        method: 'GET'
-      })
-      .then(response => response.text())
-      .then(data => alert(data))
-      .catch(err => console.error(err));
-    }
-  </script>
+    <header class="hero">
+        <h1>Welcome to Scoop Haven!</h1>
+        <p>Your favorite spot for creamy delights.</p>
+        <a href="#flavors" class="cta">Explore Flavors</a>
+    </header>
+
+    <main>
+        <section id="flavors" class="flavors">
+            <h2>Featured Flavors</h2>
+            <div class="flavor-list">
+                <div class="flavor">
+                    <img src="images/vanilla.jpg" alt="Vanilla Ice Cream">
+                    <h3>Classic Vanilla</h3>
+                </div>
+                <div class="flavor">
+                    <img src="images/chocolate.jpg" alt="Chocolate Ice Cream">
+                    <h3>Rich Chocolate</h3>
+                </div>
+                <div class="flavor">
+                    <img src="images/strawberry.jpg" alt="Strawberry Ice Cream">
+                    <h3>Fresh Strawberry</h3>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Scoop Haven Ice Cream. All rights reserved.</p>
+    </footer>
 </body>
 </html>

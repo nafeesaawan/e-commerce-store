@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ice Cream Shop</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Welcome to Sweet Scoops!</h1>
+  </header>
+  <main>
+    <section>
+      <h2>Our Flavors</h2>
+      <div class="flavors">
+        <div class="flavor">
+          <h3>Vanilla</h3>
+          <p>Price: $3.00</p>
+          <button onclick="orderFlavor('Vanilla')">Order</button>
+        </div>
+        <div class="flavor">
+          <h3>Chocolate</h3>
+          <p>Price: $3.50</p>
+          <button onclick="orderFlavor('Chocolate')">Order</button>
+        </div>
+        <div class="flavor">
+          <h3>Strawberry</h3>
+          <p>Price: $3.25</p>
+          <button onclick="orderFlavor('Strawberry')">Order</button>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script>
+    function orderFlavor(flavor) {
+      fetch(`/order?flavor=${flavor}`, {
+        method: 'GET'
+      })
+      .then(response => response.text())
+      .then(data => alert(data))
+      .catch(err => console.error(err));
+    }
+  </script>
+</body>
+</html>
